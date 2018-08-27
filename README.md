@@ -5,8 +5,8 @@ Makes a report using R, metadynminer and Rmarkdown
 
 2. Modify `report.Rmd` to set periodicity of CVs (e.g. `per=c(T,T)`).
 
-3. Run by typing:
-```
+3. Run by typing in the Linux shell:
+`
 R --no-save < makereport.R
-```
+`
 
