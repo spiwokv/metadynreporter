@@ -1,5 +1,4 @@
 # load required packages
-library(knitr)
 library(rmarkdown)
 library(metadynminer)
 
