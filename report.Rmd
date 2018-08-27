@@ -38,9 +38,9 @@ plot(minimf)
 ```
 \newpage
 
+
 Free energy profiles were evaluated, convergence was assessed
 on the second half of the simulation and plotted.
-
 ```{r fig.width=8, fig.height=6}
 proff<-feprof(minimf)
 summary(proff, imind=hillsf$size[1]/2)
@@ -51,11 +51,15 @@ plot(proff)
 One dimensional free energy profile was calculated along CV1 and
 its evolution was plotted:
 ```{r fig.width=8, fig.height=6}
-fesf<-fes2d21d(hillsf, remdim=2)
-plot(fesf-min(fesf), lwd=4, col="black")
-for(i in 1:9) {
-  tfes1<-fes2d21d(hillsf, remdim=2, imax=i*hillsf$size[1]/10)
-  lines(tfes1-min(tfes1), col=rainbow(13)[i])
+if(hillsf$size[2]==7) {
+  fesf<-fes2d21d(hillsf, remdim=2)
+  plot(fesf-min(fesf), lwd=4, col="black")
+  for(i in 1:9) {
+    tfes1<-fes2d21d(hillsf, remdim=2, imax=i*hillsf$size[1]/10)
+    lines(tfes1-min(tfes1), col=rainbow(13)[i])
+  }
+} else {
+  cat("there is just one CV\n")
 }
 ```
 \newpage
@@ -63,11 +67,15 @@ for(i in 1:9) {
 One dimensional free energy profile was calculated along CV2 and
 its evolution was plotted:
 ```{r fig.width=8, fig.height=6}
-fesf<-fes2d21d(hillsf, remdim=1)
-plot(fesf-min(fesf), lwd=4, col="black")
-for(i in 1:9) {
-  tfes1<-fes2d21d(hillsf, remdim=1, imax=i*hillsf$size[1]/10)
-  lines(tfes1-min(tfes1), col=rainbow(13)[i])
+if(hillsf$size[2]==7) {
+  fesf<-fes2d21d(hillsf, remdim=1)
+  plot(fesf-min(fesf), lwd=4, col="black")
+  for(i in 1:9) {
+    tfes1<-fes2d21d(hillsf, remdim=1, imax=i*hillsf$size[1]/10)
+    lines(tfes1-min(tfes1), col=rainbow(13)[i])
+  }
+} else {
+  cat("there is just one CV\n")
 }
 ```
 
